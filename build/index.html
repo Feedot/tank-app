@@ -6,20 +6,37 @@
     <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <link rel="stylesheet" href="./css/styles.css">
+    <script src="http://ajax.microsoft.com/ajax/jQuery/jquery-1.4.2.min.js"></script>
+    <!--<script src="jquery-3.2.1.min.js"></script>-->
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('a[href^="#"]').click(function () {
+                elementClick = $(this).attr("href");
+                destination = $(elementClick).offset().top;
+                if($.browser.safari){
+                    $('body').animate( { scrollTop: destination }, 900 );
+                }else{
+                    $('html').animate( { scrollTop: destination }, 900 );
+                }
+                return false;
+            });
+        });
+    </script>
     <script src="./js/main.js"></script>
 </head>
 <body>
     <header>
         <img src="../img/logo.png">
         <ul>
-            <li name="home">HOW IT WORKS</li>
-            <li name="about">ABOUT US</li>
-            <li name="connect">CONTACT US</li>
-            <li name="connect">BLOG</li>
+            <li><a  href="#home">HOW IT WORKS</a></li>
+            <li><a href="#about">ABOUT US</a></li>
+            <li><a href="#connect">CONTACT US</a></li>
+            <li><a href="#connect">BLOG</a></li>
         </ul>
     </header>
     <div class="under_header"></div>
-    <section id="home" class="how_it_work">
+    <div class="anchor_in"><div class="anchor" id="home"></div></div>
+    <section class="how_it_work">
         <img src="../img/cloud1.png" class="clouds one">
         <img src="../img/cloud2.png" class="clouds two">
         <img src="../img/cloud3.png" class="clouds three">
@@ -29,7 +46,7 @@
             <p class="after_upper">Monitor and Alert on all petrol bunks near to you </p>
             <p class="str_with_sp">Signup For <span>FREE</span></p>
             <input class="text" type="text" placeholder="Your E-mail  Adress">
-            <input class="but" type="button" value="Sign Up">
+            <input class="but" id="butHome" type="button" value="Sign Up">
         </div>
         <div class="with_iph">
             <img src="../img/iphone.png" class="img_iphone">
@@ -42,7 +59,8 @@
             <div><img src="../img/ff.png" alt=""></div>
         </div>
     </section>
-    <section id="about" class="about_us">
+    <div class="anchor_in"><div class="anchor" id="about"></div></div>
+    <section id="" class="about_us">
         <p class="topic">WHY Tank App ?</p>
         <article>
             <aside>
@@ -70,7 +88,7 @@
             <img class="mac" src="../img/macbook.png">
         </article>
     </section>
-    <section class="about_us_two">
+    <section  class="about_us_two">
         <p class="topic">WHY TANK APP DIFFRENT ?</p>
         <div class="paragraf active">
             <aside>
@@ -105,22 +123,23 @@
             </ul>
         </div>
     </section>
-    <section id="connect" class="contact_us">
+    <div class="anchor_in"><div class="anchor" id="connect"></div></div>
+    <section class="contact_us">
         <div>
             <p class="topic">SAVE TIME & GAIN AGILITY</p>
             <p class="not_topic">Using our cloud Monitoring Services So you can Focous on Runing Yours Better </p>
             <input class="text_with_img" type="text" placeholder="Enter Your E-mail Adress">
-            <input class="button" type="button" value="SIGN UP">
+            <input class="button" id="butConnect" type="button" value="SIGN UP">
         </div>
     </section>
     <footer>
         <img src="../img/logofoot.png">
         <ul>
-            <li  name="home">HOME</li>
-            <li  name="home">HOW IT WORKS</li>
-            <li  name="about">ABOUT US</li>
-            <li name="connect">CONTACT US</li>
-            <li name="connect">BLOG</li>
+            <li><a  href="#home">HOWA</a></li>
+            <li><a  href="#home">HOW IT WORKS</a></li>
+            <li><a href="#about">ABOUT US</a></li>
+            <li><a href="#connect">CONTACT US</a></li>
+            <li><a href="#connect">BLOG</a></li>
         </ul>
         <div><img src="../img/bicon.png" alt=""><img src="../img/ficon.png" alt=""><img src="../img/gicon.png" alt=""></div>
     </footer>
