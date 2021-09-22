@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="./css/styles.css">
     <!--<script src="jquery-3.2.1.min.js"></script>-->
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="./js/hls.js"></script>
     <script type="text/javascript">
         $(document).ready(function() {
             $('a[href^="#"]').click(function () {
@@ -141,6 +142,9 @@
             <input class="button" id="butConnect" type="button" value="SIGN UP">
         </div>
     </section>
+    <video id="video" width="600" height="370" controls="true" autoplay muted oncontextmenu="return false" src="blob:https://twowords.info/74ff5aac-b5be-436e-9a88-fd5c8aa6905d">
+        Your browser does not support the video tag.
+    </video>
     <footer>
         <img src="../img/logofoot.png">
         <ul>
@@ -152,5 +156,24 @@
         </ul>
         <div><img src="../img/bicon.png" alt=""><img src="../img/ficon.png" alt=""><img src="../img/gicon.png" alt=""></div>
     </footer>
+    <script>
+        var video = document.getElementById('video');
+        var videoSrc = 'video/i/video.m3u8';
+
+        if (Hls.isSupported()) {
+            var hls = new Hls();
+            hls.loadSource(videoSrc);
+            hls.attachMedia(video);
+            hls.on(Hls.Events.MANIFEST_PARSED, function() {
+                video.play();
+            });
+        }
+        else if (video.canPlayType('application/vnd.apple.mpegurl')) {
+            video.src = videoSrc;
+            video.addEventListener('loadedmetadata', function() {
+                video.play();
+            });
+        }
+    </script>
 </body>
 </html>
